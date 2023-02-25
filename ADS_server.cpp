@@ -17,11 +17,11 @@ ADS::ADS(vector<pair<string, string>> _ip) {
 }
 
 string ADS::handle(char *req) {
-  string word 
-  if (ip.find(word) != ads_ip.end()) {
-    return ads_ip[word[0]];
+  string word(req);
+  if (ip.find(word) != ip.end()) {
+    return ip[word];
   } else
-    return "Error:RDS:404";
+    return "Error:ADS:404";
 }
 
 void ADS::server(int PORT) {

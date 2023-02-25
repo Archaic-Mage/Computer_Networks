@@ -19,6 +19,12 @@
 #include <thread>
 #include <unistd.h>
 
+#include "NR_server.h"
+#include "Root_server.h"
+#include "TLD_server.h"
+#include "ADS_server.h"
+#include "client.cpp"
+
 using namespace std;
 
 int PORT;
