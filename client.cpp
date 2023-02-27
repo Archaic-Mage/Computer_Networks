@@ -11,7 +11,7 @@
 
 using namespace std;
 
-void _client(int PORT) {
+void _client(int PORT, string IP) {
     int sockfd;
     char buffer[MAXLINE];
     struct sockaddr_in servaddr;
@@ -27,7 +27,7 @@ void _client(int PORT) {
     // Filling server information
     servaddr.sin_family = AF_INET;
     servaddr.sin_port = htons(PORT+53);
-    servaddr.sin_addr.s_addr = INADDR_ANY;
+    servaddr.sin_addr.s_addr = inet_addr(IP.c_str());
        
     int n;
     socklen_t len;

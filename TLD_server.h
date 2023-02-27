@@ -6,10 +6,11 @@
 using namespace std;
 
 class TLD {
-  unordered_map<string, string> ads_ip;
-  TLD(vector<pair<string, string>>, int);
-  string handle(char *req);
-  void server(int);
+   unordered_map<string, string> ads_ip;
+  public:
+    TLD(vector<pair<string, string>>, int);
+     string handle(char *req);
+     void server(int);
 };
 
 #endif

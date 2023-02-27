@@ -1,17 +1,17 @@
 #include <bits/stdc++.h>
+#include <thread>
+
 using namespace std;
 
-int main(){
+void foo(int a) {
+    int b = a*2;
+    cout << b;
+    return;
+}
 
-    char *a = (char*) malloc(6);
-
-    sprintf(a, "hello");
-    
-    string k = string(a);
-
-    cout << k << endl;
-    cout << a << endl;
-
-
+int main() {
+    thread _foo(foo, 5);
+    _foo.join();
+    cout << "done";
     return 0;
 }

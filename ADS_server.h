@@ -7,9 +7,10 @@ using namespace std;
 
 class ADS {
   unordered_map<string, string> ip;
-  ADS(vector<pair<string, string>>);
-  string handle(char *req);
-  void server(int);
+  public:
+    ADS(vector<pair<string, string>>);
+    string handle(char *req);
+    void server(int);
 };
 
 #endif
