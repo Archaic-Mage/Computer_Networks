@@ -1,0 +1,8 @@
+REQ from 127.0.0.1:52797 info: www.bank.com
+REQ to 127.0.0.1:8054 info: www.bank.com
+RES from 127.0.0.1:8054 data: 127.0.0.1:8055
+REQ to 127.0.0.1:8055 info: www.bank.com
+RES from 127.0.0.1:8055 data: 127.0.0.1:8057
+REQ to 127.0.0.1:8057 info: www.bank.com
+RES from 127.0.0.1:8057 data: 202.15.5.1
+RES sent 127.0.0.1:52797 data: 202.15.5.1

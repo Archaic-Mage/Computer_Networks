@@ -1,0 +1,48 @@
+BEGIN_DATA
+NR 127.0.0.1
+RDS 127.0.0.1
+TDS_com 127.0.0.1
+TDS_edu 127.0.0.1
+bank.com 127.0.0.1
+shop.com 127.0.0.1
+store.com 127.0.0.1
+mynah.edu 127.0.0.1
+brown.edu 127.0.0.1
+cougar.edu 127.0.0.1
+List_of_ADS1
+www.bank.com 202.15.5.1
+smtp.bank.com 202.15.5.2
+ftp.bank.com 202.15.5.3
+sshd1.bank.com 202.15.5.4
+vpn.bank.com 202.15.5.5
+List_of_ADS2
+www.shop.com 133.54.5.1
+smtp.shop.com 133.54.5.2
+ftp.shop.com 133.54.5.3
+sshd1.shop.com 133.54.5.4
+vpn.shop.com 133.54.5.5
+List_of_ADS3
+www.store.com 143.11.5.21
+smtp.store.com 143.11.5.22
+ftp.store.com 143.11.5.23
+sshd1.store.com 143.11.5.24
+vpn.store.com 143.11.5.25
+List_of_ADS4
+www.mynah.edu 198.167.5.1
+smtp.mynah.edu 198.167.5.2
+ftp.mynah.edu 198.167.5.3
+sshd1.mynah.edu 198.167.5.4
+vpn.mynah.edu 198.167.5.5
+List_of_ADS5
+www.brown.edu 192.13.5.1
+smtp.brown.edu 192.13.5.2
+ftp.brown.edu 192.13.5.3
+sshd1.brown.edu 192.13.5.4
+vpn.brown.edu 192.13.5.5
+List_of_ADS6
+www.cougar.edu 212.18.25.1
+smtp.cougar.edu 212.18.25.2
+ftp.cougar.edu 212.18.35.3
+sshd1.cougar.edu 212.18.45.4
+vpn.cougar.edu 212.18.55.5
+END_DATA
