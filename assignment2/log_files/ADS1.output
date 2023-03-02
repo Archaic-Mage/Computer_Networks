@@ -1,0 +1,6 @@
+REQ from 127.0.0.1:8053 info: www.shop.com
+RES sent 127.0.0.1:8053 data: 133.54.5.1
+REQ from 127.0.0.1:8055 info: bye
+Stopping server.
+REQ from 127.0.0.1:8055 info: bye
+Stopping server.

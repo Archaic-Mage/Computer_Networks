@@ -1,3 +1,13 @@
+// NAME: Soham Tripathy
+// Roll Number: CS20B073
+// Course: CS3205 Jan. 2023 semester
+// Lab number: 2
+// Date of submission: 03-03-2023
+// I confirm that the source file is entirely written by me without
+// resorting to any dishonest means.
+// Website(s) that I used for basic socket programming code are:
+// URL(s): https://people.cs.rutgers.edu/~pxk/417/notes/sockets/udp.html
+
 #include "NR_server.h"
 #include <arpa/inet.h>
 #include <netinet/in.h>
@@ -27,6 +37,11 @@ void NR::log(int type, string data, string ip_port) {
   } else if(type == -2) {
     file << "RES sent " << ip_port << " data: " << data << endl;
   }
+
+  if(data == "bye" && type == 0) {
+    file << "Stopping the server."<< endl;
+  }
+
   file.close();
 }
 
@@ -38,7 +53,6 @@ pair<string,int> NR::extract(string IP_PORT) {
   string PORT;
   getline(ss, ip, ':');
   getline(ss, PORT, ':');
-  cout << ip << " " << stoi(PORT) << endl;
   return {ip, stoi(PORT)};    
 }
 
@@ -112,19 +126,50 @@ void NR::server(int PORT) {
     //log info
     log(-1, name_requested, string(inet_ntoa(cliaddr.sin_addr)) + ":" + to_string(ntohs(cliaddr.sin_port)));
 
+    if(name_requested == "bye") {
+      log(0, name_requested, root + ":" + to_string(PORT+1));
+      cliaddr.sin_addr.s_addr = inet_addr(root.c_str());
+      cliaddr.sin_port = htons(PORT+1);
+      n = sendto(sockfd, name_requested.c_str(), name_requested.size(), MSG_CONFIRM,
+            (const struct sockaddr *) &cliaddr, sizeof(cliaddr));
+      break;
+    }
+
     string response;
     pair<string, int> IP_PORT;
 
     //requests the root server for tld server 
-    response = request(root, PORT+1, sockfd);    
+    response = request(root, PORT+1, sockfd); 
+    //if record not present
+    if(response == "Error:RDS:404") {
+      response = "Error:NR:404";
+      log(-2, response, string(inet_ntoa(cliaddr.sin_addr)) + ":" + to_string(ntohs(cliaddr.sin_port)));
+      n = sendto(sockfd, response.c_str(), response.size(), MSG_CONFIRM,
+            (const struct sockaddr *) &cliaddr, sizeof(cliaddr));
+      continue;
+    }   
     IP_PORT = extract(response);  
 
     //request the corresponding TLD server for ADS 
     response = request(IP_PORT.first, IP_PORT.second, sockfd);
+    if(response == "Error:TLD:404") {
+      response = "Error:NR:404";
+      log(-2, response, string(inet_ntoa(cliaddr.sin_addr)) + ":" + to_string(ntohs(cliaddr.sin_port)));
+      n = sendto(sockfd, response.c_str(), response.size(), MSG_CONFIRM,
+            (const struct sockaddr *) &cliaddr, sizeof(cliaddr));
+      continue;
+    } 
     IP_PORT = extract(response);
 
     //request the ADS for IP address
     response = request(IP_PORT.first, IP_PORT.second, sockfd);
+    if(response == "Error:ADS:404") {
+      response = "Error:NR:404";
+      log(-2, response, string(inet_ntoa(cliaddr.sin_addr)) + ":" + to_string(ntohs(cliaddr.sin_port)));
+      n = sendto(sockfd, response.c_str(), response.size(), MSG_CONFIRM,
+            (const struct sockaddr *) &cliaddr, sizeof(cliaddr));
+      continue;
+    } 
 
     log(-2, response, string(inet_ntoa(cliaddr.sin_addr)) + ":" + to_string(ntohs(cliaddr.sin_port)));
 

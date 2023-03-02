@@ -1,0 +1,6 @@
+REQ from 127.0.0.1:8053 info: www.brown.edu
+RES sent 127.0.0.1:8053 data: 192.13.5.1
+REQ from 127.0.0.1:8056 info: bye
+Stopping server.
+REQ from 127.0.0.1:8056 info: bye
+Stopping server.

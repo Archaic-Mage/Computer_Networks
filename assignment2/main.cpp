@@ -2,7 +2,7 @@
 // Roll Number: CS20B073
 // Course: CS3205 Jan. 2023 semester
 // Lab number: 2
-// Date of submission: <fill>
+// Date of submission: 03-03-2023
 // I confirm that the source file is entirely written by me without
 // resorting to any dishonest means.
 // Website(s) that I used for basic socket programming code are:
@@ -64,12 +64,12 @@ void start_thread(unordered_map<string, string> ip_addr, pair<string, vector<pai
   //total of 10 servers
   NR nr_server = NR(ip_addr["rds"]);
   RDS rds_server = RDS(ip_addr["tds_com"], ip_addr["tds_edu"], PORT+54);
-  TLD tld_server_com = TLD(tld_ads[0], PORT+55);
-  TLD tld_server_edu = TLD(tld_ads[1], PORT+56);
+  TLD tld_server_com = TLD(tld_ads[0], PORT+55, ext[0]);
+  TLD tld_server_edu = TLD(tld_ads[1], PORT+56, ext[1]);
   vector<ADS*> ads_server_com(3);
-  for(int i = 0; i<3; i++) ads_server_com[i] = new ADS(name_ads_ip[i].second);
+  for(int i = 0; i<3; i++) ads_server_com[i] = new ADS(name_ads_ip[i].second, to_string(i));
   vector<ADS*> ads_server_edu(3);
-  for(int j = 3; j<6; j++) ads_server_edu[j-3] = new ADS(name_ads_ip[j].second);
+  for(int j = 3; j<6; j++) ads_server_edu[j-3] = new ADS(name_ads_ip[j].second, to_string(j));
   
   //starting threads
   thread client(_client, PORT, ip_addr["nr"]);
@@ -92,9 +92,11 @@ void start_thread(unordered_map<string, string> ip_addr, pair<string, vector<pai
   _nr_server.join();
   _rds_server.join();
   _tld_server_com.join();
-  _tld_server_com.join();
+  _tld_server_edu.join();
   for(int i = 0; i< 3; i++) {
     _ads_server_com[i].join();
+  }
+  for(int i = 0; i<3; i++) {
     _ads_server_edu[i].join();
   }
   return;
@@ -108,7 +110,6 @@ void parse_input_file(string filename) {
 
   getline((istream&) Myfile, line);
 
-  cout << line << endl;
 
   if(line != "BEGIN_DATA") {
     cout << "Entered Wrong Filename" << endl;
@@ -136,8 +137,6 @@ void parse_input_file(string filename) {
   for(int i = 0; i<6; i++) {
     for(int j = 0; j < 5; j++) {
       getline((istream&) Myfile, line);
-      //debug
-      cout << line << endl;
       string name;
       stringstream ss(line);
       getline(ss, name, ' ');
@@ -163,6 +162,7 @@ void parse_input_file(string filename) {
 
   Myfile.close();
   start_thread(ip_addr, name_ads_ip);
+  return;
 }
 
 int main(int argc, char **argv) {

@@ -1,0 +1,29 @@
+Script started on 2023-03-02 16:34:39+05:30 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="84" LINES="39"]
+[1m[7m%[27m[1m[0m                                                                                    ]2;mage@ArchaicMage:~/Documents/Semester_6/cs3205/labs/assignment2]1;..s/assignment2[0m[27m[24m[J╭─[32mmage[39m[36m@[32mArchaicMage[39m [1m[34m~/Documents/Semester_6/cs3205/labs/assignment2[39m[0m  [33m‹main*› [39m
+╰─[39m➤ [39m [K[?1h=[?2004h[H[2J[0m[27m[24m[J╭─[32mmage[39m[36m@[32mArchaicMage[39m [1m[34m~/Documents/Semester_6/cs3205/labs/assignment2[39m[0m  [33m‹main*› [39m
+╰─[39m➤ [39m [K[1m[31mm[0m[39m[1m[31mm[0m[39m[90make[39m[1m[31mm[1m[31ma[0m[39m[1m[31mm[1m[31ma[1m[31mk[0m[39m[0m[32mm[0m[32ma[0m[32mk[32me[39m [90mclean[39m[39m[4mc[24m[4mc[39m[4ml[24m[24mc[24ml[39me[39ma[39mn[?1l>[?2004l
+]2;make clean]1;makerm -rf run ./log_files/*
+[1m[7m%[27m[1m[0m                                                                                    ]2;mage@ArchaicMage:~/Documents/Semester_6/cs3205/labs/assignment2]1;..s/assignment2[0m[27m[24m[J╭─[32mmage[39m[36m@[32mArchaicMage[39m [1m[34m~/Documents/Semester_6/cs3205/labs/assignment2[39m[0m  [33m‹main*› [39m
+╰─[39m➤ [39m [K[?1h=[?2004h[1m[31mm[0m[39m[1m[31mm[0m[39m[90make clean[39m[9D[1m[31mm[1m[31ma[0m[39m[1m[31mm[1m[31ma[1m[31mk[0m[39m[0m[32mm[0m[32ma[0m[32mk[32me[39m[39m [39m [39m [39m [39m [39m [?1l>[?2004l
+]2;make]1;makeg++ -pthread main.cpp ADS_server.cpp client.cpp NR_server.cpp Root_server.cpp TLD_server.cpp -o run
+[1m[7m%[27m[1m[0m                                                                                    ]2;mage@ArchaicMage:~/Documents/Semester_6/cs3205/labs/assignment2]1;..s/assignment2[0m[27m[24m[J╭─[32mmage[39m[36m@[32mArchaicMage[39m [1m[34m~/Documents/Semester_6/cs3205/labs/assignment2[39m[0m  [33m‹main*› [39m
+╰─[39m➤ [39m [K[?1h=[?2004h[32m.[39m[32m.[39m[90m/run 8000 inputfile.txt[39m[23D[4m[32m.[4m[32m/[24m[39m[39m[4m.[39m[4m/[39m[4mr[24m[4mr[39m[4mu[24m[24m[32m.[24m[32m/[24m[32mr[24m[32mu[32mn[39m[39m [39m8[39m0[39m0[39m0[39m [39m[4mi[39m[4mn[39m[4mp[39m[4mu[39m[4mt[39m[4mf[39m[4mi[39m[4ml[39m[4me[39m[4m.[39m[4mt[39m[4mx[39m[4mt[24m[?1l>[?2004l
+]2;./run 8000 inputfile.txt]1;./runEnter Server Name: www.shop.com
+DNS Mapping: 133.54.5.1
+Enter Server Name: smtp.s      ssd hd1.so tore.com
+DNS Mapping: 143.11.5.24
+Enter Server Name: www.brown.edu
+DNS Mapping: 192.13.5.1
+Enter Server Name: vpn.mynah.edu
+DNS Mapping: 198.167.5.5
+Enter Server Name: www 3.bank.com
+No DNS Record Found
+Enter Server Name: www.ban.c  k.com
+DNS Mapping: 202.15.5.1
+Enter Server Name: sophfpsps
+No DNS Record Found
+Enter Server Name: bye
+[1m[7m%[27m[1m[0m                                                                                    ]2;mage@ArchaicMage:~/Documents/Semester_6/cs3205/labs/assignment2]1;..s/assignment2[0m[27m[24m[J╭─[32mmage[39m[36m@[32mArchaicMage[39m [1m[34m~/Documents/Semester_6/cs3205/labs/assignment2[39m[0m  [33m‹main*› [39m
+╰─[39m➤ [39m [K[?1h=[?2004h[1m[31me[0m[39m[1m[31me[0m[39m[90mxit[39m[0m[32me[32mx[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[0m[32me[0m[32mx[0m[32mi[32mt[39m[?1l>[?2004l
+]2;exit]1;exit
+Script done on 2023-03-02 16:35:44+05:30 [COMMAND_EXIT_CODE="0"]

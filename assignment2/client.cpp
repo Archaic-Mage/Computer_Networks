@@ -1,3 +1,13 @@
+// NAME: Soham Tripathy
+// Roll Number: CS20B073
+// Course: CS3205 Jan. 2023 semester
+// Lab number: 2
+// Date of submission: 03-03-2023
+// I confirm that the source file is entirely written by me without
+// resorting to any dishonest means.
+// Website(s) that I used for basic socket programming code are:
+// URL(s): https://people.cs.rutgers.edu/~pxk/417/notes/sockets/udp.html
+
 #include <bits/stdc++.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -43,6 +53,8 @@ void _client(int PORT, string IP) {
         sendto(sockfd, url_name.c_str(), url_name.size(),
             MSG_CONFIRM, (const struct sockaddr *) &servaddr, 
                 sizeof(servaddr));
+        
+        if(url_name == "bye") break;
         
         //The NR server gives the server name or sends Error:NR:404 - meaning DNS mapping not found
         n = recvfrom(sockfd, (char *)buffer, MAXLINE, 
