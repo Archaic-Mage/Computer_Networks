@@ -1,14 +1,7 @@
-REQ from 127.0.0.1:8053 info: www.brown.edu
-RES sent 127.0.0.1:8053 data: 127.0.0.1:8060
-REQ from 127.0.0.1:8053 info: vpn.mynah.edu
-RES sent 127.0.0.1:8053 data: 127.0.0.1:8058
-REQ from 127.0.0.1:8054 info: bye
-REQ to 127.0.0.1:8062 info: bye
-Stopping Server
-REQ to 127.0.0.1:8060 info: bye
-Stopping Server
-REQ to 127.0.0.1:8058 info: bye
-Stopping Server
+REQ from 127.0.0.1:8053 info: www.bank.edu
+RES sent 127.0.0.1:8053 data: Error:TLD:404
+REQ from 127.0.0.1:8053 info: www.edu.edu
+RES sent 127.0.0.1:8053 data: Error:TLD:404
 REQ from 127.0.0.1:8054 info: bye
 REQ to 127.0.0.1:8062 info: bye
 Stopping Server

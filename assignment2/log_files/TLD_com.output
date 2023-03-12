@@ -1,37 +1,12 @@
-REQ from 127.0.0.1:8053 info: www.shop.com
-RES sent 127.0.0.1:8053 data: 127.0.0.1:8059
-REQ from 127.0.0.1:8053 info: sshd1.store.com
-RES sent 127.0.0.1:8053 data: 127.0.0.1:8061
-REQ from 127.0.0.1:8053 info: ww3.bank.com
-RES sent 127.0.0.1:8053 data: 127.0.0.1:8057
 REQ from 127.0.0.1:8053 info: www.bank.com
 RES sent 127.0.0.1:8053 data: 127.0.0.1:8057
-REQ from 127.0.0.1:8054 info: bye
-REQ to 127.0.0.1:8061 info: bye
-Stopping Server
-REQ to 127.0.0.1:8059 info: bye
-Stopping Server
-REQ to 127.0.0.1:8057 info: bye
-Stopping Server
-REQ from 127.0.0.1:8053 info: .so.com
+REQ from 127.0.0.1:8053 info: edu.edu.com
 RES sent 127.0.0.1:8053 data: Error:TLD:404
-REQ from 127.0.0.1:8053 info: .bank.com
-RES sent 127.0.0.1:8053 data: 127.0.0.1:8057
-REQ from 127.0.0.1:8053 info: www..bank.com
-RES sent 127.0.0.1:8053 data: 127.0.0.1:8057
-REQ from 127.0.0.1:8053 info: www......com
+REQ from 127.0.0.1:8053 info: www.bank.edu.com
 RES sent 127.0.0.1:8053 data: Error:TLD:404
-REQ from 127.0.0.1:8053 info: www.bank#.com
+REQ from 127.0.0.1:8053 info: www.bank.ac.com
 RES sent 127.0.0.1:8053 data: Error:TLD:404
-REQ from 127.0.0.1:8053 info: www.%sbank.com
-RES sent 127.0.0.1:8053 data: Error:TLD:404
-REQ from 127.0.0.1:8053 info: www.bank.com
-RES sent 127.0.0.1:8053 data: 127.0.0.1:8057
-REQ from 127.0.0.1:8053 info: ....com
-RES sent 127.0.0.1:8053 data: Error:TLD:404
-REQ from 127.0.0.1:8053 info: ...www.bank.com
-RES sent 127.0.0.1:8053 data: 127.0.0.1:8057
-REQ from 127.0.0.1:8053 info: www.bank.com
+REQ from 127.0.0.1:8053 info: www.ac.bank.com
 RES sent 127.0.0.1:8053 data: 127.0.0.1:8057
 REQ from 127.0.0.1:8054 info: bye
 REQ to 127.0.0.1:8061 info: bye

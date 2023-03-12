@@ -1,6 +1,2 @@
-REQ from 127.0.0.1:8053 info: vpn.mynah.edu
-RES sent 127.0.0.1:8053 data: 198.167.5.5
-REQ from 127.0.0.1:8056 info: bye
-Stopping server.
 REQ from 127.0.0.1:8056 info: bye
 Stopping server.

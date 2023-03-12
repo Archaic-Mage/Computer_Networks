@@ -1,18 +1,6 @@
-REQ from 127.0.0.1:8053 info: ww3.bank.com
-RES sent 127.0.0.1:8053 data: Error:ADS:404
 REQ from 127.0.0.1:8053 info: www.bank.com
 RES sent 127.0.0.1:8053 data: 202.15.5.1
-REQ from 127.0.0.1:8055 info: bye
-Stopping server.
-REQ from 127.0.0.1:8053 info: .bank.com
+REQ from 127.0.0.1:8053 info: www.ac.bank.com
 RES sent 127.0.0.1:8053 data: Error:ADS:404
-REQ from 127.0.0.1:8053 info: www..bank.com
-RES sent 127.0.0.1:8053 data: Error:ADS:404
-REQ from 127.0.0.1:8053 info: www.bank.com
-RES sent 127.0.0.1:8053 data: 202.15.5.1
-REQ from 127.0.0.1:8053 info: ...www.bank.com
-RES sent 127.0.0.1:8053 data: Error:ADS:404
-REQ from 127.0.0.1:8053 info: www.bank.com
-RES sent 127.0.0.1:8053 data: 202.15.5.1
 REQ from 127.0.0.1:8055 info: bye
 Stopping server.
