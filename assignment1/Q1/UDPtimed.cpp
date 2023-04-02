@@ -56,8 +56,8 @@ main(int argc, char *argv[])
 	printf("Server IP address: %s\n", inet_ntoa(servaddr.sin_addr));
 	printf("Server port      : %d\n", ntohs(servaddr.sin_port));
 	cout << "****************" << endl;
-
-	while(1) {
+	int t = 1;
+	while(t--) {
 		n = recvfrom(sockfd, (char *)buffer, MAXLINE,
 				MSG_WAITALL, ( struct sockaddr *) &cliaddr,
 				&len);
@@ -75,17 +75,17 @@ main(int argc, char *argv[])
 		printf("Client message 	 : %s", buffer);
 		printf("****************\n");
 
-		n = sendto(sockfd, (const char *)buffer, strlen(buffer),
-			MSG_CONFIRM, (const struct sockaddr *) &cliaddr,
-				len);
+		// n = sendto(sockfd, (const char *)buffer, strlen(buffer),
+		// 	MSG_CONFIRM, (const struct sockaddr *) &cliaddr,
+		// 		len);
 
-		if(n < 0) {
-			perror("Sending Failed by the server.");
-			exit(EXIT_FAILURE);
-		}
+		// if(n < 0) {
+		// 	perror("Sending Failed by the server.");
+		// 	exit(EXIT_FAILURE);
+		// }
 		
-		std::cout<<"Message echoed."<<std::endl;
-		cout << "****************" << endl; 
+		// std::cout<<"Message echoed."<<std::endl;
+		// cout << "****************" << endl; 
 	}
 	
 	return 0;

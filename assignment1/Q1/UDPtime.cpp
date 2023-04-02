@@ -64,14 +64,19 @@ main(int argc, char *argv[])
 	printf("Server IP address: %s\n", inet_ntoa(servaddr.sin_addr));
 	printf("Server port 	 : %d\n", ntohs(servaddr.sin_port));
 	printf("****************\n");
-
-	while(1) {
+	int t = 1;
+	while(t) {
 
 		printf("Write your message 	: ");
 		bzero(buffer, sizeof(buffer));
 		n = 0;
-		while ((buffer[n++] = getchar()) != '\n')
-			;
+		// while ((buffer[n++] = getchar()) != '\n')
+		// 	;
+
+		for (int  i = 0; i<8; i++) {
+			buffer[i] = 'H';
+		}
+		buffer[8] = '\0';
 
 		if(buffer[n] == EOF) {
 			printf("Client Requests have ended.");
@@ -93,19 +98,19 @@ main(int argc, char *argv[])
 		printf("****************\n");
 			
 		bzero(buffer, sizeof(buffer));
-		n = 0;
-		n = recvfrom(sockfd, (char *)buffer, MAXLINE,
-					MSG_WAITALL, (struct sockaddr *) &servaddr,
-					&len);
-		buffer[n] = '\0';
+		// n = 0;
+		// n = recvfrom(sockfd, (char *)buffer, MAXLINE,
+		// 			MSG_WAITALL, (struct sockaddr *) &servaddr,
+		// 			&len);
+		// buffer[n] = '\0';
 
-		if(n < 0) {
-			perror("Failed to recieve echoed message from server.");
-			exit(1);
-		}
+		// if(n < 0) {
+		// 	perror("Failed to recieve echoed message from server.");
+		// 	exit(1);
+		// }
 
-		std::cout<<"Server message 	: "<<buffer;
-		printf("****************\n");
+		// std::cout<<"Server message 	: "<<buffer;
+		// printf("****************\n");
 
 	}
 

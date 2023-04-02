@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "*.ejs": "html",
+        "iostream": "cpp",
+        "string": "cpp",
+        "chrono": "cpp"
+    },
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/home/mage/Documents/Semester_6/cs3205/labs/assignment2",
+            "binaryPath": "/home/mage/Documents/Semester_6/cs3205/labs/assignment2/run",
+            "binaryArgs": []
+        }
+    ]
+}
