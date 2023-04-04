@@ -8,30 +8,28 @@
 // Website(s) that I used for basic socket programming code are:
 // URL(s): https://www.geeksforgeeks.org/udp-server-client-implementation-c/
 
-#ifndef CLIENT_H
-#define CLIENT_H
+#ifndef TBUFFER_H
+#define TBUFFER_H
 
 #include <bits/stdc++.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
-#include <netinet/in.h>
+#include "packet.h" 
 
 using namespace std;
 
-class Client {
-    int sockfd;
-    int sock;
-    struct sockaddr_in servaddr;
+class T_Buffer {
 public:
-    Client(string, int);
-    void set_timeout(int T);
-    string recieve();
-    void send(string msg);
+    vector<PACKET> buffer;
+    vector<chrono::microseconds> time_generated;
+    int max_size;
+    //tells if buffer is free to fill
+    bool is_free() {
+        if(buffer.size() < max_size) return true;
+        return false;
+    }
+    //add into the buffer
+    void add(PACKET p) {
+        buffer.push_back(p);
+    }
 };
-
 
 #endif

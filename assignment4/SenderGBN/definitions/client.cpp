@@ -1,3 +1,13 @@
+// NAME: Soham Tripathy
+// Roll Number: CS20B073
+// Course: CS3205 Jan. 2023 semester
+// Lab number: 4
+// Date of submission: 04-03-2023
+// I confirm that the source file is entirely written by me without
+// resorting to any dishonest means.
+// Website(s) that I used for basic socket programming code are:
+// URL(s): https://www.geeksforgeeks.org/udp-server-client-implementation-c/
+
 #include "../headers/client.h"
 #include <bits/stdc++.h>
 
@@ -18,6 +28,19 @@ Client::Client(string ip, int PORT) {
     servaddr.sin_family = AF_INET;
     servaddr.sin_port = htons(PORT);
     servaddr.sin_addr.s_addr = inet_addr(ip.c_str());
+    sock = sockfd;
+}
+
+void Client::set_timeout(int TIMEOUT) {
+    // set the socket timeout
+    sock = sockfd;
+    struct timeval timeout{};
+    timeout.tv_sec = 0;
+    timeout.tv_usec = TIMEOUT;
+    if (setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, &timeout, sizeof(timeout)) < 0) {
+        std::cerr << "Failed to set socket timeout" << std::endl;
+        exit(1);
+    }
 }
 
 string Client::recieve() {
@@ -27,12 +50,18 @@ string Client::recieve() {
    
     len = sizeof(servaddr);  //len is value/result
    
-    n = recvfrom(sockfd, (char *)buffer, MAXLINE, 
+    n = recvfrom(sock, (char *)buffer, MAXLINE, 
                 MSG_WAITALL, ( struct sockaddr *) &servaddr,
                 &len);
     buffer[n] = '\0';
 
-    return string(buffer);
+    string ret = "";
+    if(n == 0) {
+        return ret;
+    }
+    ret += buffer[0];
+
+    return ret;
 }
 
 void Client::send(string msg) {
