@@ -103,58 +103,36 @@ void _gen_packet()
 
 vector<pair<int, _time_t>> index_timeouts(128);
 vector<int> attempts(128, 0);
+vector<thread*> reciever_tread(128);
 
 int to_send = 0;
 Client* sender;
 
-void init_timeouts() {
-    for(int i = 0; i<128; i++) {
-        index_timeouts[i].first = -1;
-    }
-}
-
-bool check_timeouts() {
-    _time_t end = chrono::high_resolution_clock::now();
-    for(int i = 0; i<128; i++) {
-        if(index_timeouts[i].first != -1) {
-            _time_t start = index_timeouts[i].second;
-            chrono::microseconds duration = chrono::duration_cast<chrono::microseconds>(end-start);
-            if(packets_ack <= 10 && duration.count() > default_timeout) {
-                index_timeouts[i].first = -1;
-                return true;
-            } else if(packets_ack > 10 && duration.count() > 2*RTT_avg) {
-                index_timeouts[i].first = -1;
-                return true;
-            }
-        }
-    }
-    return false;
-}
+void recieve_packet();
 
 void send_packet()
 {
-    init_timeouts();
     while (1)
     {
 
         if(packets_ack >= MAX_PACKETS) return;
         buffer_t.lock();
-        if(check_timeouts()) {
-            buffer_t.unlock();
-            debug2("time_out");
-            to_send = 0;
-            continue;
-        }
-        // buffer_t.lock();
         if (to_send < WINDOW_SIZE && to_send < tranmission_buffer.buffer.size())
         {
             sender->send(tranmission_buffer.buffer[to_send].stringify());
-            sent = true;
             debug2("send data");
             debug2(int(tranmission_buffer.buffer[to_send].SEQ));
+            if(packets_ack <= 10) {
+                sender->set_timeout(default_timeout);
+            } else {
+                sender->set_timeout(2*RTT_avg);
+            }
             index_timeouts[tranmission_buffer.buffer[to_send].SEQ].first = to_send;
             index_timeouts[tranmission_buffer.buffer[to_send].SEQ].second = chrono::high_resolution_clock::now(); 
             attempts[tranmission_buffer.buffer[to_send].SEQ]++;
+            thread* rcv_thread = new thread(recieve_packet);
+            rcv_thread->detach();
+            reciever_tread[tranmission_buffer.buffer[to_send].SEQ] = rcv_thread;
             if(attempts[tranmission_buffer.buffer[to_send].SEQ]-1 > 5) {
                 STOP = true; 
                 buffer_t.unlock();
@@ -169,15 +147,17 @@ void send_packet()
 }
 void recieve_packet()
 {
-    while (1)
-    {
         debug2("reciever thread running");
         buffer_t.lock();
-        if(!sent) {
+        string data = sender->recieve();
+        debug2(data);
+        if(data.length() == 0) {
+            debug2("timeout occured");
+            to_send = 0;
             buffer_t.unlock();
-            continue;
+            return;
         }
-        PACKET res = unpack(sender->recieve());
+        PACKET res = unpack(data);
         debug2("recieved");
         sent = false;
         debug2("recieved ack packet");
@@ -229,7 +209,6 @@ void recieve_packet()
 
         buffer_t.unlock();
         if(packets_ack >= MAX_PACKETS) return;
-    }
 }
 
 void handle_args(int argc, char** argv) {
@@ -288,9 +267,7 @@ int main(int argc, char **argv)
     gen_start = chrono::high_resolution_clock::now();
     thread generate_packets(_gen_packet);
     thread _sender(send_packet);
-    thread _recieving(recieve_packet);
     _sender.join();
-    _recieving.detach();
     generate_packets.join();
 
     if(STOP) {

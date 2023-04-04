@@ -1,6 +1,10 @@
 Script started on 2023-04-04 09:37:17+05:30 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="183" LINES="36"]
-                                                                                                                                                                                       ]0;kali@kali: ~/Downloads/SenderGBN[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿kali[0m[34m[32m)-[[1m[32m[39m~/Downloads/SenderGBN[0m[32m]
-└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[36m.[39m[36m.[39m[38;2;153;153;153m/sender -s 192.168.0.103 -p 8080 -l 1024 -r 10 -n 400 -w 3 -f 10 -d[39m[67D[39m[1m.[39m[1m/[0m[1m.[1m/[39m[1ms[0m[1ms[39m[1me[0m[0m[36m.[0m[36m/[0m[36ms[0m[36me[36mn[36md[36me[36mr[39m[39m [32m-[32ms[39m[39m [39m1[39m9[39m2[39m.[39m1[39m6[39m8[39m.[39m0[39m.[39m1[39m0[39m3[39m [32m-[32mp[39m[39m [39m8[39m0[39m8[39m0[39m [32m-[32ml[39m[39m [39m1[39m0[39m2[39m4[39m [32m-[32mr[39m[39m [39m1[39m0[39m [32m-[32mn[39m[39m [39m4[39m0[39m0[39m [32m-[32mw[39m[39m [39m3[39m [32m-[32mf[39m[39m [39m1[39m0[39m [32m-[32md[39m[?1l>[?2004l
+                                                                                                                                                                                       
+
+]0;kali@kali: ~/Downloads/SenderGBN
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿kali[0m[34m[32m)-[[1m[32m[39m~/Downloads/SenderGBN[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[36m.[39m[36m.[39m[38;2;153;153;153m/sender -s 192.168.0.103 -p 8080 -l 1024 -r 10 -n 400 -w 3 -f 10 -d[39m[67D[39m[1m.[39m[1m/[0m[1m.[1m/[39m[1ms[0m[1ms[39m[1me[0m[0m[36m.[0m[36m/[0m[36ms[0m[36me[36mn[36md[36me[36mr[39m[39m [32m-[32ms[39m[39m [39m1[39m9[39m2[39m.[39m1[39m6[39m8[39m.[39m0[39m.[39m1[39m0[39m3[39m [32m-[32mp[39m[39m [39m8[39m0[39m8[39m0[39m [32m-[32ml[39m[39m [39m1[39m0[39m2[39m4[39m [32m-[32mr[39m[39m [39m1[39m0[39m [32m-[32mn[39m[39m [39m4[39m0[39m0[39m [32m-[32mw[39m[39m [39m3[39m [32m-[32mf[39m[39m [39m1[39m0[39m [32m-[32md[39m[?1l>[?2004l
+
 Seq 0: Time Generated: 0:61 RTT: 400 Number of Attempts: 1
 Seq 1: Time Generated: 100:121 RTT: 413 Number of Attempts: 1
 Seq 2: Time Generated: 200:381 RTT: 413 Number of Attempts: 1
@@ -401,9 +405,13 @@ Seq 12: Time Generated: 39851:537 RTT: 352 Number of Attempts: 1
 Seq 13: Time Generated: 39951:811 RTT: 379 Number of Attempts: 1
 Seq 14: Time Generated: 40052:615 RTT: 367 Number of Attempts: 1
 Seq 15: Time Generated: 40153:33 RTT: 284 Number of Attempts: 1
-PckRate = 10; PckLength = 1024; Retrans. Ratio = 1; AvgRTT = 0:244
-                                                                                                                                                                                       ]0;kali@kali: ~/Downloads/SenderGBN
-[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿kali[0m[34m[32m)-[[1m[32m[39m~/Downloads/SenderGBN[0m[32m]
-└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[4m[37me[24m[39m[4m[37me[24m[39m[38;2;153;153;153mxit[39m[24m[36me[36mx[39m[4m[37me[4m[37mx[4m[37mi[24m[39m[24m[36me[24m[36mx[24m[36mi[36mt[39m[?1l>[?2004l
+PckRate = 10; PckLength = 1024; Retrans. Ratio = 1.01; AvgRTT = 0:250
+                                                                                                                                                                                       
+
+]0;kali@kali: ~/Downloads/SenderGBN
+
+[0m[27m[24m[J[32m┌──([1m[32m[34mkali㉿kali[0m[34m[32m)-[[1m[32m[39m~/Downloads/SenderGBN[0m[32m]
+└─[1m[32m[34m$[0m[34m[39m [K[?1h=[?2004h[4m[37me[24m[39m[4m[37me[24m[39m[38;2;153;153;153mxit[39m[24m[36me[36mx[39m[4m[37me[4m[37mx[4m[37mi[24m[39m[24m[36me[24m[36mx[24m[36mi[36mt[39m[?1l>[?2004l
+
 
 Script done on 2023-04-04 09:38:36+05:30 [COMMAND_EXIT_CODE="0"]

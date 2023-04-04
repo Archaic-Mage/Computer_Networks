@@ -123,12 +123,13 @@ void process_packet(_time_t start, string req, Server reciever) {
     if(NES < 0) NES+=128;
 
     string ack = "";
-    ack += packet.SEQ;
+    ack += NES;
     ack += "ACK";
 
     reciever.send(ack);
     debug2("Sent ACK");
     debug2(int(ack[0]));
+    
     ack_sent++;
     MAX_PACKETS--;
 }

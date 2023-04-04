@@ -45,7 +45,7 @@ void Client::set_timeout(int TIMEOUT) {
 
 string Client::recieve() {
     socklen_t len;
-    int n;
+    size_t n;
     char buffer[100000];
    
     len = sizeof(servaddr);  //len is value/result
@@ -53,12 +53,12 @@ string Client::recieve() {
     n = recvfrom(sock, (char *)buffer, MAXLINE, 
                 MSG_WAITALL, ( struct sockaddr *) &servaddr,
                 &len);
-    buffer[n] = '\0';
 
     string ret = "";
-    if(n == 0) {
+    if(n != 4) {
         return ret;
     }
+    buffer[n] = '\0';
     ret += buffer[0];
 
     return ret;
