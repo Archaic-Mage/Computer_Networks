@@ -123,7 +123,7 @@ void process_packet(_time_t start, string req, Server reciever) {
     if(NES < 0) NES+=128;
 
     string ack = "";
-    ack += NES;
+    ack += packet.SEQ;
     ack += "ACK";
 
     reciever.send(ack);
