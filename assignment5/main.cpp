@@ -331,6 +331,7 @@ void print_path(map<int, int> parent) {
     output_file << "Routing Table for Node No. " << ROUTER_ID << " at Time " << chrono::duration_cast<chrono::milliseconds>(current_time - start_time).count()/1000 << endl;
     //print the header
     output_file << "|    Dest    |   Path    |    Cost    |" << endl;
+    output_file << "|---|---|---|" << endl;
     //for all the nodes
     for(auto it = parent.begin(); it != parent.end(); it++) {
         //if the node is not ROUTER_ID
